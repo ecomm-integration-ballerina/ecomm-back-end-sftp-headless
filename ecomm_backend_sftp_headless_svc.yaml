@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: refund-sftp-headless-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 22
+      targetPort: 22
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: refund-sftp-headless-service
+subsets:
+  - addresses:
+      - ip: 10.0.0.111
+    ports:
+      - port: 22
